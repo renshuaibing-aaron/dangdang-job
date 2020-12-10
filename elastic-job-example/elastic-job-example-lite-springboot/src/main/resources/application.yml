@@ -1,0 +1,19 @@
+regCenter:
+  serverList: localhost:6181
+  namespace: elastic-job-lite-springboot
+
+simpleJob:
+  cron: 0/30 * * * * ?  #每隔5秒执行一次
+  shardingTotalCount: 3   #任务分成三片
+  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou  #每一片的参数
+
+dataflowJob:
+  cron: 0/10000 * * * * ?
+  shardingTotalCount: 3
+  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8086
